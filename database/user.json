@@ -1,9 +1,9 @@
 {
-  "homeTitle": "NodePost | Blogging in the Fun Way",
+  "homeTitle": "Microservice Architecture the Fun Part",
   "baseURL": "",
-  "statAddress": "/stat",
+  "statAddress": "/nufsm",
   "git": {
-    "username" : "",
-    "repository": ""
+    "username" : "k-five",
+    "repository": "msfun.ir"
   }
 }
