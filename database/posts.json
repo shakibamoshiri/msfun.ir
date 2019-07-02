@@ -1,14 +1,8 @@
 {
     "home": {
-        "Back end": {
-            "Node.js": "",
-            "Express.js": "",
-            "JSON": ""
-        },
-        "Front end": {
-            "JavaScript": "",
-            "HTML": "",
-            "CSS": ""
+        "why we got into microservice architecture": "",
+        "implementing pipeline for microservice architecture": {
+            "what is a pipeline": ""
         }
     }
 }
