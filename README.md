@@ -7,7 +7,7 @@
 <h4>nodepost will turn a JSON file like this:</h4>
 
 ```javascript
-{{
+{
     "home": {
         "why we got into microservice architecture": "",
         "implementing pipeline for microservice architecture": {
@@ -26,6 +26,13 @@
 </h4>
 
 <h4>here is the main repository for msfun.ir which you can clone and run it locally as well.</h4>
+
+ - simply clone the repository: `clone https://github.com/k-five/msfun.ir`
+ - `cd msfun.ir`
+ - `npm install`
+ - `./node-dev nodepost.js`
+ - It is ready! Open localhost:1402
+
 
 <h1 align="center">License</h1>
 <p id="bottom" align="center">
