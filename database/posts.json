@@ -2,7 +2,10 @@
     "home": {
         "why we got into microservice architecture": "",
         "implementing pipeline for microservice architecture": {
-            "what is a pipeline": ""
+            "what is a pipeline for microservices": "",
+            "what do we need to implement a pipeline": "",
+            "quick look at final result": "",
+            "kernel notification": ""
         }
     }
 }
