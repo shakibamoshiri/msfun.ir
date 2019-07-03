@@ -1,0 +1,81 @@
+<main>
+	<div class="content-r">
+		<h1>kernel-notification</h1>
+		<hr>
+		<p>We have to main pattern for <strong>automating</strong> a task using a computer.</p>
+		<ol>
+			<li>Polling</li>
+			<li>Watching</li>
+		</ol>
+
+		<h2 class="sub-title">Polling</h2>
+		<p>This is polling:</p>
+ <pre><code class="language-javascript"> while tree; do
+	sleep 1;
+	# checking something by continuously doing a command
+	# for example cron-tab in Linux
+ done; </code></pre>
+
+		<p>Polling is everywhere. If you call your friends many times continuously to see where he / she is, this is poling.</p>
+		<p>This way of automating thins is the old way, but for some cases we still need it.</p>
+		<p>Also it is <strong>synchronous</strong> which means we know when it is going to happen.</p>
+		<p>When we have repeated tasks that happens periodically we can use polling to automate them. Like what? Like backuping a database we have every 24 hours.</p>
+		<p>We know we have users they daily do <strong>CRUD: Create, Read, Update, Delete</strong> so we automate our backup system for safety.</p>
+		<p>One drawback of <strong>polling</strong> is that it is not good when we have <strong>asynchronous</strong> change and we want to do something based on that changes.</p>
+		<p>For example we want to be aware if file X has been changed or has been deleted. Using polling is possible like so:</p>
+
+ <pre><code class="language-javascript"> while tree; do
+	sleep 1;
+	if [ -e file-X ]; then
+		# do something
+	fi
+ done; </code></pre>
+
+		<p>But what if the file has not been deleted in an hour, or day, or even month! Should we run 30 days x 24 hours x 60 minutes x 60 seconds <strong>if statement</strong> just for this check?</p>
+		<p>Definitally it is <string>inefficient</string></p>
+
+		<h2 class="sub-title">Watching</h2>
+		<p>I do not know much about <strong>Window Kernel</strong> but a little about <strong>Linux Kernel</strong> so I use it in this context but I think the Window Kernel should somehow have the same features.</p>
+		<p>Based on this fact to polling is inefficient to observe active in our Operating System specially <strong>Hard Disk</strong> after version 2.7 in Linux Kernel an API was added to asynchronous polling which the right term for it is <strong>watching</strong>.</p>
+		<p>This API is <a href="http://man7.org/linux/man-pages/man7/inotify.7.html">inotify(7)</a>.</p>
+		<p><strong>When we open a file, who opens the file for us?</strong></p>
+		<p><strong>When we open a directory, who?</strong></p>
+		<p><strong>When we write to a file or create a directory, who does the task?</strong></p>
+		<p>The answer to all is: The Kernel.</p>
+		<p>The kernel knows when a file opened because it is done by itself. So the kernel is aware of all the actives happening with the Hard Disk.</p>
+		<p>If we had a way to register our need - like modifying a file - with the kernel, then whenever that need happens the kernel can notify us.</p>
+		<p>Sure the open source communities are smart and done this for us which is <strong>inotify</strong>.</p>
+		<p>Using this APi we can be notified whenever a change happens to any kind of activities with our File-System. See <strong>man 7 inotify</strong> for more.</p>
+		<p>The kernel can do with <strong>Hard Disk</strong> what the browsers (= FireFox, etc) does with DOM. Notifying event to the users.</p>
+		<p>Web Browsers:</p>
+
+ <pre><code class="language-html">&lt;div&gt;
+	 &lt;button onclick="alert( 'you clicked' )"&gt;Click Me&lt;/button&gt;
+ &lt;/div&gt;</code></pre>
+
+		<button onclick="alert( 'you clicked' );">Click Me</button>
+        <p>Linux Kernel:</p>
+        <img width="100%"  src="/build/img/02-03-show-kernel-notification-using-iwatch.png" alt="02-03-show-kernel-notification-using-iwatch.png">
+        <p>A screenshot of my Linux Terminal using <strong>iwatch</strong> with which I am watching "kernel-notification" file.</p>
+        <p>I opened the file. Modify something. Save the file. And closed it.</p>
+        <p>And you can see the events like:</p>
+		<ul>
+		    <li>IN_OPEN</li>
+		    <li>IN_ACCESS</li>
+		    <li>IN_MODIFY</li>
+		</ul>
+
+
+
+
+
+
+
+
+
+        DD_MM_YYYY
+		<div class="edit-on-github">
+			<a target="_blank" href="https://github.com/k-five/msfun.ir/blob/master/implementing-pipeline-for-microservice-architecture/kernel-notification/main.html">Edit on Github</a>
+		</div>
+	</div>
+</main>
