@@ -3,22 +3,22 @@
 		<h1>ci-server</h1>
         <hr>
         <p>We talked about <a href="../task-runners">task runners</a>, right?
-        A CI Server in the simplest form is a task runner.
-        A task runner, runs some tasks for us based on our need.
-        A CI Server is a huge task runner with much capabilities that can managers many tasks.
+        A CI Server in the simplest form of a task runner.
+        A task runner, runs some tasks for us based on our needs.
+        A CI Server is a huge task runner with much capabilities that can manage many tasks.
         </p>
         <p>For example <a target="_blank" href="https://travis-ci.org/">Travis-CI</a> is a CI Server.</p>
         <p><strong>What does it do?</strong>. Very simple. We sign-up there and register a task to be run.</p>
         <p><strong>Task for what?</strong>. For a project (= repository) we have.</p>
         <p><strong>Where is this repository?</strong>. Well, on our github account.</p>
-        <strong>How does it work with our repository?</strong>. After registering a project for Travis-CI, it wants us to let it to have access to our Github repository.
+        <strong>How does it work with our repository?</strong>. After enabling / registering a project for Travis-CI, it wants us to let it to have access to our Github repository.
         Then if we give this access to Travis-CI, on that specific project (= repository) it sets up GitHub-WebHooks.
-        Then based on these events have been registered for GitHub-WebHook, GitHub will notify Travis-CI for change and Travis-CI based on the task we give to it, run some tasks for us.
-        Then based on the result of tasks, Travis-CI modify a <strong>SVG</strong> file - we have it on our README.md - to show us if the tests /  tasks have been failed or succeeded.
+        Then based on some events that have been registered for GitHub-WebHook, GitHub will notify Travis-CI for changes and Travis-CI based on the task we give to it, runs the task for us.
+        Then based on the result of tasks, Travis-CI modify an <strong>SVG</strong> file - we have it on our README.md - to show us if the tests /  tasks have been failed or succeeded.
         </p>
 
         <h3 class="sub-title">Simple CI Server</h3>
-        <img src="/build/img/02-12-ci-server-travis.png" alt="02-12-ci-server-travis.png" />
+        <img width="100%" src="/build/img/02-12-ci-server-travis.png" alt="02-12-ci-server-travis.png" />
 
         <p>Screenshot of a build with Travis-CI</p>
         <img width="100%" src="/build/img/02-12-travis-ci-for-bline.png" alt="02-12-travis-ci-for-bline.png" />
@@ -28,12 +28,39 @@
        
         <h3 class="sub-title">FAQ</h3>
         <p>Is it good to have a CI Server?</p>
-        <p>Yes. It help us to separate our build process from our source code and shared repository.</p>
+        <p>Yes. It helps us to separate our build process from our source code and shared repository.</p>
 
         <p>Do we need a CI Server for our own?</p>
         <p>No, if we have a simple project, but for experimental purpose - fun - why not.</p>
         <p>And if a project is big? There are many services out there, you can search for <strong>CI Servers / Services</strong>.</p>
 
+        <p>At this point you should have a picture and the overall workflow of a simple pipeline. Which are</p>
+        <p>On our local machine</p>
+        <ul>
+            <li>We modify our source code</li>
+            <li><i>some task runners will be run, if we have</i></li>
+            <li><i>some tests will be run, if we have</i></li>
+            <li><i>some build locally will be run, if we need</i></li>
+            <li>we continuously commit to our local repository</li>
+            <li>we push to our shared repository</li>
+        </ul>
+        <p>On our shared repository (e.g. GitHub)</p>
+        <ul>
+            <li>file / directory watchers on GitHub servers will detect change (after our push)</li>
+            <li>The services on our shared repository will notify (e.g. GitHub Web-Hook)  our CI Server or other CI Server.</li>
+            <li>Our or other CI Servers synchronize themselves with the shared repository</li>
+            <li>file / directory watchers on CI servers will detect change (after synchronizing)</li>
+            <li><i>some files will be build, if we have</i></li>
+            <li><i>some tests will be run, if we have</i></li>
+            <li><i>with some CI Servers may our built code be sent to another server (e.g. Production Server)</i></li>
+        </ul>
+        <p>On our production server</p>
+        <ul>
+            <li>we will have production-ready code</li>
+            <li><i>the business will deliver it, if it decide to do so</i></li>
+        </ul>
+
+        <p>Finally we are done. This was the end of our simple pipeline with microservices.</p>
 
         <p>Back <a href="../continuous-delivery">continuous-delivery</a></p>
         <p>Next <a href="../devops-for-modern-front-end">DevOps for Modern Front-end</a></p>

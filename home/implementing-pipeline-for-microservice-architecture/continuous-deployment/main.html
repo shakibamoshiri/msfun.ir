@@ -6,11 +6,11 @@
         <p>Because it expands the process further up to the production.</p>
         <p>In fact we add more steps to our pipeline so the source code can be ready for production in a automation way.</p>
 
-        <img src="/build/img/02-10-continuous-deployment.png" alt="02-10-continuous-deployment.png" />
+        <img width="100%" src="/build/img/02-10-continuous-deployment.png" alt="02-10-continuous-deployment.png" />
         
         <p>While our continuous integration has been automated at:</p>
         <ul>
-            <li>Application Level Automation</li>
+            <li>Application Level Automation, or</li>
             <li>Architecture Level Automation</li>
         </ul>
         <p>with continuous deployment we have to think about:</p>
@@ -28,7 +28,7 @@
 
         <h3 class="sub-title">Architecture Level Automation</h3>
         <p>Assuming that Github is our <strong>shared repository</strong> we just need to register for a WebHook on Github for our CI Server (if we have it) or others CI Servers which is done by that service for us.</p>
-        <p>Here is a screenshot of <strong>msfun.ir</strong>:</p>
+        <p>Here is a screenshot of <strong>msfun.ir</strong></p>
         <img width="100%" src="/build/img/02-09-github-webhook-for-msfun.png" alt="02-09-github-webhook-for-msfun.png" />
         <p>after each:</p>
         <ol>
@@ -43,7 +43,19 @@
         </ul>
         <p>But for large project a separate CI Server is preferable.</p>
         <p>One the other side, our CI server or my microservice that I have with Node.js should always listen for Github push notification.</p>
-        <p>You can see it <a href="https://github.com/k-five/nodepost/blob/4fd467209e044637e34ed6f29339a53ac114626a/nodepost.js#L102">here</a> in nodepost source code.</p>
+<pre><code class="language-javascript">...
+...
+nodepost.post( "/gitpush", function( request, response ){
+    request.on( "data", function( chunk ){
+        const secret = "this-will-be-the-secret-key";
+        const sig = "sha1=" + crypto.createHmac( "sha1", secret ).update( chunk.toString() ).digest( "hex" );
+        const x_hub_signature =  request.headers['x-hub-signature'];
+        if( x_hub_signature === sig ){
+            log( "POST from github" );
+...
+...</code></pre>
+        <p>Or you can see it <a href="https://github.com/k-five/nodepost/blob/4fd467209e044637e34ed6f29339a53ac114626a/nodepost.js#L102">here</a> in nodepost source code.</p>
+        <p>Do no worry too much about CI Server, we will talk about it. Lets move on.</p>
 
         
         <p>Back <a href="../shared-repository">Shared Repository</a></p>

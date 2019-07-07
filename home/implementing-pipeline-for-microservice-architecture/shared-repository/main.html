@@ -2,13 +2,22 @@
 	<div class="content-r">
 		<h1>shared-repository</h1>
         <hr>
-        <p>Why do not we just push the <stirng>built code</stirng> directly to the production serer?</p>
+        <p>Why do not we just push the <stirng>built code</stirng> directly to the production server?</p>
         <p>For example simply using <strong>rsync</strong> via SSH we can send it.</p>
         <p>The reason is simple: we want that others can also code / interact with our repository.</p>
-        <p>If you just keep it / them offline on our local machine, no one use it / them. Yes some developers on the same company can, but how about outside of the company?</p>
+        <p>If we just keep it / them offline on our local machine, no one can use it / them. Yes some developers in the same company can, but how about outside of the company?</p>
         <p>Shared repository not only helps doing that, but also can been seen as a backup for our codes.</p>
-        <p>So based on previous step which was continuous integration, we add another step to our process which is a shared repository; it can one or more than one depending upon our needs.</p>
-        <img src="/build/img/02-09-shared-respository.png" alt="02-09-shared-respository.png" />
+        <p>So based on previous step which was continuous integration, we add another step to our process which is a shared repository; it can be one or more than one depending upon our needs.</p>
+        <img width="100%" src="/build/img/02-09-shared-respository.png" alt="02-09-shared-respository.png" />
+
+        <p>So if you have code under Version Control then put it on GitHub or somewhere else to have a shared repository.</p>
+        <p>We use the Web-Hook of this shared repository to notify our CI Server so our code on the server can be synchronized with GitHub repository.</p>
+        
+        <img width="100%" src="/build/img/02-09-using-github-webhooks.png" alt="02-09-using-github-webhooks.png" />
+
+        <p>Zoom out the screenshot to see it clearly.</p>
+        <p>Here I pushed to GitHub (bottom Window) and nodepost (top window) are synchronizing itself with the shared repository in GitHub.</p>
+        <p>We will add more layers in the next post, continuous deployment. Lets go.</p>
 
         <p>Back <a href="../continuous-integration">continuous-integration</a></p>
         <p>Next <a href="../continuous-deployment">continuous-deployment</a></p>
