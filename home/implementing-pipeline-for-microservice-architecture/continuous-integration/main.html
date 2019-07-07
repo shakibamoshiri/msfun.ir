@@ -1,0 +1,113 @@
+<main>
+	<div class="content-r">
+		<h1>continuous-integration</h1>
+        <hr>
+        <p>Previously we saw a very simple <strong>task runner</strong> at application level. But in microservices we have many things:</p>
+        <ul>
+            <li>source code</li>
+            <ul>
+                <li>HTML files</li>
+                <li>JavaScript files</li>
+                <li>CSS files</li>
+                <li>PHP files</li>
+                <li>C or C++ files</li>
+                <li>etc</li>
+            </ul>
+            <li>tests</li>
+            <ul>
+                <li>unit test</li>
+                <li>integration test</li>
+                <li>UI test</li>
+                <li>performance test</li>
+                <li>etc</li>
+            </ul>
+            <li>shared repository</li>
+            <ul>
+                <li>Maybe Github</li>
+                <li>Maybe Gitlab</li>
+                <li>or npmjs as well</li>
+                <li>etc</li>
+            </ul>
+            <li>Maybe end-test</li>
+            <li>maybe CI Server</li>
+            <ul>
+                <li>our CI Server</li>
+                <li>others like: <a href="https://travis-ci.org">Travis-CI</a></li>
+            </ul>
+            <li>Maybe Production Server</li>
+            <li>etc</li>
+        </ul>
+        <p>These are just for one service! Imagine we will have 10 or 40 services!</p>
+        <p><strong>How are we going to create a pipeline?</strong></p>
+        <p>Very simple:</p>
+        <ol>
+            <li>First we find best task runners at application level for our services</li>
+            <li>Second we connect these task runners together to create a bigger task runner at <strong>Architecture Level</strong></li>
+            <li>If needed connect these architecture level task runners together to create a bigger pipeline at <strong>Infrastructure Level</strong></li>
+        </ol>
+        <p>Whet are we doing here?</p>
+        <p>Very simple. In fact we have done it in elementary level when we were at school.</p>
+        <p>What is this: <strong>5 + 5 + 5 + 5</strong>?  Adding numbers together, sum them, we call it addition.</p>
+        <p>What about this: <strong>5 * 5 * 5 * 5</strong>? Is not it:</p>
+        <ol>
+            <li>5 + 5 + 5 + 5</li>
+            <li>5 + 5 + 5 + 5</li>
+            <li>5 + 5 + 5 + 5</li>
+            <li>5 + 5 + 5 + 5</li>
+        </ol>
+        <p>Repeating the same rule but we <strong>abstract</strong> this operation with a label for it: <strong>multiplication</strong></p>
+        <p>How about this: <strong>5 <sup>5</sup> + 5 <sup>5</sup> + 5 <sup></sup> + 5 <sup>5</sup></strong>? More abstraction, right? Hmmm we have a pattern here!</p>
+        <p><strong>We are combining low level of abstraction and creating high level of abstraction</strong>.</p>
+        <p>There are three levels for us:</p>
+        <ol>
+            <li>Application Level Automation</li>
+            <li>Architecture Level Automation</li>
+            <li>Infrastructure Level Automation</li>
+        </ol>
+        <p>Thus we use simple rules but in more complex contexts. This is it.</p>
+
+        <h3 class="sub-title">Architecture Level Automation</h3>
+        <p>Suppose we have three services and each one has its own task runner to automatically getting things done.</p>
+        <p>Now how are we going to bundle / build these three services so they can work together and give us the final result? Hmmm! Good question.</p>
+        <p>We need a higher level of automation. At this level the outcome of our services should automatically produce the result.</p>
+        <p>Example: building a homepage</p>
+        <ol>
+            <li>It hes a header</li>
+            <li>it has a main part (=body)</li>
+            <li>it has a footer</li>
+        </ol>
+        <p>So we have three repositories (= three separate one, three git) and the outcome of these becomes the <strong>homepage</strong>.</p>
+        <p>What? Three repositories? Are you crazy? Hmmm. Maybe it is time to read about <a href="https://martinfowler.com/articles/micro-frontends.html">Micro-Front-end Architecture</a>.</p>
+        <p>Anyway, the process of coding on these repositories and producing the result is <strong>continuous integration</strong>.</p>
+
+        <h3 class="sub-title">Simple Continuous Integration</h3>
+        <p>For example if we have</p>
+        <ul>
+            <li>source code: React files</li>
+            <li>Some test like unit test: doing it with Jest</li>
+            <li>A bundler: webpack</li>
+            <li>end-test or push to a shared repository</li>
+        </ul>
+        <p>When we save our change with the source code, these should happen:</p>
+        <ol>
+            <li>The tests should be run, if all passed, next</li>
+            <li>webpack should be run, and bundles, if passed, next</li>
+            <li><i>If needed, our browser should be refreshed.</i></li>
+            <li><i>if needed pushing to a shared repository</i> after we added a tag or new version</li>
+        </ol>
+        <p>In this case we continuously interacting, adding more code, features, etc to the previous things we had.</p>
+        <p>if we are three teams with three services, we continuously interacting with our repository and adding more code, features, etc to the previous produces, services we had.</p>
+        <p>The key here is the automation and creating a loop, while integration happens..</p>
+
+        <img src="/build/img/02-08-simple-continuous-integration.png" alt="02-08-simple-continuous-integration.png" />
+
+        <p>Back <a href="../task-runners">Task Runners</a></p>
+        <p>Next <a href="../shared-repository">Shared Repository</a></p>
+
+
+		DD_MM_YYYY
+        <div class="edit-on-github">
+            <a target="_blank" href="https://github.com/k-five/msfun.ir/blob/master/home/implementing-pipeline-for-microservice-architecture/continuous-integration/main.html">Edit on Github</a>
+        </div>
+	</div>
+</main>
