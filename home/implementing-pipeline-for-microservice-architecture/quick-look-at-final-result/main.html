@@ -2,35 +2,34 @@
 	<div class="content-r">
 		<h1>quick-look-at-final-result</h1>
         <hr>
-        <p>After this series of post we will be able to understand or if you take it seriously - of course - able to do it.</p>
-        <p>Lets have a look at a screenshot I took it from my monitor</p>
+        <p>After this series of posts we will be able to understand and if you take it seriously - which you should do - able to implement a simple pipeline for your own.</p>
+        <p>Lets have a look at a screenshot I took it from my monitor.</p>
         <p>There are four Terminal we can see:</p>
         <ul>
             <li>Top-Right corner is vim editor modifying JXS</li>
             <li>Top-Left corner <strong>git commit</strong> and <strong>git push</strong></li>
             <li>Bottom-Right corner a node.js microservice that does <strong>git pull</strong></li>
-            <li>Bottom-Left corner <strong>syslog</strong> of <strong>CentOS7</strong> server</li>
+            <li>Bottom-Left corner <strong>syslog</strong> of <strong>CentOS7</strong> server at <strong>/var/log/messages</strong></li>
         </ul>
         <img width="100%" src="/build/img/02-04-quick-look-at-final-result.png" alt="02-04-quick-look-at-final-result.png" />
 
         <h3 class="sub-title">How this flow works</h3>
         <p>After saving the file using vim ...</p>
         <ol>
-            <li>git commit and git push to git-hub (which is our shared repository)</li>
-            <li>git-hub server will get the files and saves it on its hard disk</li>
-            <li>file watchers on git-hub server will be triggered for the change</li>
-            <li>a service / command / APi will notify the change and some statistics to git-hub <a href="https://developer.github.com/webhooks/">webhooks</a> API</li>
-            <li>git-hub's webhooks will notify our node.js microservice that there is a change</li>
+            <li>git commit and git push to GitHub (which is our shared repository)</li>
+            <li>GitHub server will get the files and saves it on its hard disk</li>
+            <li>file watchers on GitHub server will be triggered for the change</li>
+            <li>a service / command / APi will notify the change and some statistics to GitHub <a href="https://developer.github.com/webhooks/">webhooks</a> API</li>
+            <li>GitHub's webhooks will notify our node.js microservice that there is a change</li>
             <li>our node.js microservice runs <strong>git pull</strong> to be sync with the shared repository</li>
-            <li>file watchers on the server (= we have) detected the change (= after git pull) and trigger a **change** notification</li>
-            <li>a command based on his notification is executed and runs a <strong>bash script</strong></li>
-            <li>the bash script deleted the older built file (= by webpack) and run the <a href="https://webpack.js.org/">webpack</a></li>
-            <li>then webpack will find the file and builds it with production mode</li>
+            <li>file watchers on the server (= we have) notice the changes (= after git pull) and command based on his notification is executed and runs a <strong>bash script</strong></li>
+            <li>the bash script deletes the older built file (= by webpack) and runs the <a href="https://webpack.js.org/">webpack</a> again</li>
+            <li>then webpack will find the file(s) and builds (JXS) it/them with production mode</li>
         </ol>
 
         <p>These were the skeleton we have for this pipeline. But there are more and we will see them later on.</p>
         <p>A big note here is that everything is done <strong>automatically</strong> with no manual interfering.</p>
-        <p>The goal of this on maybe other pipeline for a microservice architecture is to automate the workflow.</p>
+        <p>The goal of this or maybe other pipelines for a microservice architecture is to automate the workflow.</p>
         <p>Because <strong>automation</strong> is a key feature that this architecture should have we wanted to go through the underline of automation which is:</p>
         <ul>
             <li>Kernel Notification</li>
@@ -38,7 +37,7 @@
         </ul>
         <p>Without these two we are able to use services like <strong>AWS</strong> and <strong>Azure</strong> but we are unaware of the underline - under the hood - of the system.</p>
         <p>I hope this helps you see the workflow of automation more in depth.</p>
-        <p>Lets get started first by looking at kernel notifications</p>
+        <p>Lets get started first by looking at kernel notifications.</p>
 
         <p>Back <a href="../what-do-we-need-to-implement-a-pipeline">what-do-we-need-to-implement-a-pipeline</a></p>
         <p>Next <a href="../kernel-notification">kernel-notification</a></p>
