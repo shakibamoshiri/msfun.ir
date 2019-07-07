@@ -10,7 +10,7 @@
             <li>webpack-dev-server</li>
             <li>etc</li>
         </ul>
-        <p>These tools are simple task runners and work based on what we saw the in previous posts.</p>
+        <p>These tools are simple task runners and work based on what we saw in theprevious posts.</p>
         <p>They are made of three thinks:</p>
         <ol>
             <li>a mechanism for watching like: <strong>polling</strong> or <strong>watching</strong></li>
@@ -19,15 +19,15 @@
         </ol>
         <p>if we can create such a thing, then we have a task runner. Notice that they can be very simple or very very complex; but the main idea is based on these simple things for automation.</p>
         
-        <img src="" alt="applicaton-level-task-runners.png">
+        <img width="100%" src="/build/img/02-07-task-runner.png" alt="02-07-task-runner.png" />
 
         <p>Of course we can use many ready-to-use tools out there, but the goal is to understand how it works under the hood.</p>
         <p>For example we can use <strong>webpack --watch</strong> when we want to bundle our JS files, but how about when we have php file? How about HTML file? Even how about when we have C file? Text file?</p>
         <p>Based on what we have learned so far - if we could not find our tool - we can make our own!</p>
 
         <h3 class="sub-title">Our First Simple Pipeline <sup>automation at application level</sup></h3>
-        <p>In this pipeline for modifying a HTML file - and after each save - our browser should be refreshed.</p>
-        <p>So we need a HTML file; create one.</p>
+        <p>In this pipeline for modifying an HTML file - and after each save - our browser should be refreshed.</p>
+        <p>So we need an HTML file; create one.</p>
         <p>Open it with your editor.</p>
         <p>Then for our <strong>command runner</strong> I am using <strong>direvent</strong> and you can find many of them and use them but <a href="http://www.gnu.org.ua/software/direvent">direvent</a> is the best one among CLIs.</p>
         <p>How to find them? Search your OS repository which for <strong>Ubuntu</strong> is something like this:</p>
@@ -140,7 +140,7 @@ shinken-common - Flexible monitoring tool - Common files
 shinken-mod-pickle-retention-file-generic - Shinken pickle-retention-file-generic module
 tcosmonitor-common - Thin client monitor for TCOS (common files)</code></pre>
 
-        <p>Assuming you have direvent, and opened browser (=filefox) and a HTML file, save this configuration file for direvent:</p>
+        <p>Assuming you have direvent, and opened browser (=filefox) and an HTML file, save this configuration file for direvent:</p>
 
 <pre><code class="language-javascript">syslog {
     facility local0;
@@ -167,10 +167,9 @@ watcher {
 <pre><code class="language-javascript">direvent --foreground browser-refresh.conf </code></pre>
 
         <p>the foreground option is just for running it interactively  with the shell. If we do not use this, by default direvent will be run as a <strong>daemon (= service)</strong>.</p>
-        <p>If you did everything correctly, then after each <strong>save</strong> your browser will be refreshed.</p>
+        <p>If you did everything correctly, then after each <strong>saved</strong> your browser will be refreshed.</p>
         <p>Make sure to understand what are happening here because with these task runners we can create / design a much bigger pipeline (= we should) for our microservices.</p>
 
-        <img width="100%" src="/build/img/02-07-task-runner.png" alt="02-07-task-runner.png" />
 
         <p>Back <a href="../file-system-observation">File System Observation</a></p>
         <p>Next <a href="../continuous-integration">Continuous Integration</a></p>

@@ -4,18 +4,18 @@
         <hr>
         <p>If you have ever worked with DOM (=Document Object Model) with Web Browser, then it is easy to understand what is going on here.</p>
         <p>At the previous part we saw that we have a <strong>Kernel Notification</strong> and this helps us using it, make a decision.</p>
-        <p>This decision can be a <strong>function call</strong> on Web Browsers or a <strong>run a command</strong> in side a bash script.</p>
+        <p>This decision can be a <strong>function call</strong> on Web Browsers or <strong>run a command</strong> inside a bash script.</p>
         
-        <img src="/build/img/02-06-file-system-observation.png" alt="02-06-file-system-observation.png"/>
+        <img width="100%" src="/build/img/02-06-file-system-observation.png" alt="02-06-file-system-observation.png"/>
 
         <h3 class="sub-title">What is really happening?</h3>
-        <p>When we edit a file and save it (^s) then kernel write the file to the hard-disk and notify us we a write signal.</p>
+        <p>When we edit a file and save it (Ctrl+s) then kernel write the file to the hard-disk and notify us width a <strong>write</strong> signal / notification.</p>
         <p>The watcher program catches the notification form the kernel and runs another command or maybe just notify us.</p>
-        <p>The important things here is that after successful write by kernel we get this notification. So we can be sure - after catching the notification - that it really has happened.</p>
+        <p>The important thing here is that after successful write by kernel we get this notification. So we can be sure - after catching the notification - it really has happened.</p>
 
         <h3 class="sub-title">Practical Example</h3>
         <p>We have a command named: <strong>xdotool</strong> which stands for <strong>command-line X11 automation tool</strong>. In practice we can use it to send a specific key to a specific window.</p>
-        <p>For example we can send <strong>F5</strong> to FileFox browser to refresh a page like so:</p>
+        <p>For example we can send <strong>F5</strong> to FireFo browser to refresh a page like so:</p>
 <pre><code class="language-javascript">xdotool search --onlyvisible  --class "firefox" windowfocus  key F5</code></pre>
         <p>Now we have</p>
         <ul>
@@ -25,12 +25,12 @@
         </ul>
         <p><strong>What is coming to your mind?</strong></p>
         <p>Is not it this:</p>
-        <p>when I saved a HTML file, my browsers automatically be refreshed.</p>
-        <p>Yes. We can simply have a very simple and basic <strong>pipeline</strong> when we manipulating HTML files.</p>
+        <p><i>when I saved an HTML file, my browser automatically be refreshed.</i></p>
+        <p>Yes. We can simply have a very simple and basic <strong>pipeline</strong> so when we manipulating HTML files our browser be refreshed.</p>
         <p>We modify files, hit save, or ^s and our browser is refreshed.</p>
         <p>We modify files, hit save, or ^s and our browser is refreshed.</p>
         <p>We modify files, hit save, or ^s and our browser is refreshed.</p>
-        <p>In fact we should pack or create a program / script / module / anything you name that can deal with kernel and file system and run a command for us.</p>
+        <p>In fact we should pack or create a program / script / module / anything you name it, that can deal with kernel and file system and run a command for us.</p>
         <p>We call this thing(s): <strong>task runner(s)</strong></p>
         <p>Lets learn them next.</p>
         <p>Back: <a href="../kernel-notification">Kernel Notification</a></p>
