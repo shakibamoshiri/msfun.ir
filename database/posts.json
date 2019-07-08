@@ -12,7 +12,9 @@
             "shared repository": "",
             "continuous deployment": "",
             "continuous delivery": "",
-            "ci server": ""
+            "ci server": "",
+            "handle failed action": "",
+            "handle succeeded action": ""
         }
     }
 }
