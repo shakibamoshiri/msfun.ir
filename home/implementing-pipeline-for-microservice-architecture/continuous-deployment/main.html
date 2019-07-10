@@ -36,7 +36,7 @@
             <li>pull request</li>
         </ol>
         <p>Github will send a notification to: "http://msfun.ir/gitpush" via HTTP as a POST.</p>
-        <p>Since my process is simple and experimental, I used the save server for both:</p>
+        <p>Since my process is simple and experimental, I used the same server for both:</p>
         <ul>
             <li>CI Server</li>
             <li>Production Server</li>
@@ -55,7 +55,12 @@ nodepost.post( "/gitpush", function( request, response ){
 ...
 ...</code></pre>
         <p>Or you can see it <a href="https://github.com/k-five/nodepost/blob/4fd467209e044637e34ed6f29339a53ac114626a/nodepost.js#L102">here</a> in nodepost source code.</p>
-        <p>Do no worry too much about CI Server, we will talk about it. Lets move on.</p>
+        <p>Do no worry too much about CI Server, we will talk about it.</p>
+        <p>After we get a notification form GitHub, our service should synchronize itself with the shared repository.</p>
+        <p>It does it using <strong>git pull</strong> - the better option is <strong>git pull --ff-only</strong> just do it if it is a forward merge - and then we have new files on our server.</p>
+        <p>Our file watcher (we have them on our server) will notice the change (write, create) and will be triggered to run some commands. For example running <strong>webpack</strong> to bundling JXS files.</p>
+        <p>Finally when the webpack is done, we have delivered our source code, ready to be used by end-user. In my case it is a post, but in most cases it is more complicated and, it could be adding new feathers to a SPA, a theme, etc.</p>
+        <p>Lets see Continuous Delivery.</p>
 
         
         <p>Back <a href="../shared-repository">Shared Repository</a></p>
