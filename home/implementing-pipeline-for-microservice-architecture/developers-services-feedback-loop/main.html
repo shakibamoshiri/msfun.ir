@@ -2,42 +2,57 @@
 	<div class="content-r">
 		<h1>developers-services-feedback-loop</h1>
         <hr>
-        <p>We talked about failed actions, but what if we want to plan an action to do based on a succeeded action?</p>
-        <p>For example after pushing to our shared repository (anywhere it is) we want to delete some files on our local machine.</p>
-        <p>Or after the source has been built on the server, we want to do another action.</p>
-        <p>So somehow we need a kind of <strong>guarantee</strong> if the previous action succeeded, do the next one.</p>
-        <p>The think that comes to mind is things like <strong>notifications</strong>. And yes. GitHub has notification for new commit on a repository. We can email ourselves. And yes. GitHub has notification for new commit on a repository. We can email ourselves. We can send text. etc.</p>
-        <p><strong>BUT</strong></p>
-        <p>How about automate this flow?</p>
-        <p>We <strong>git push</strong> and all things happen automatically up to the server. If we get notification <strong>X</strong> we want to something (next thing to do) happens automatically. Some kind of Local Machine and Remote Machine communication but things should be done automatically.</p>
-        <p>Two things came to my mind:</p>
+        <p>Managing many  microservices with just one team or one developer is like a boy / man to have many girlfriends at the same time.</p>
+        <p>Or if you have ever worked with <strong>fork(3)</strong> in Linux to run mulit-commands simultaneously - which is called Parallel Execution - you know what I am talking about.</p>
+        <p>At first it seems interesting to start with many services but after setting them up and running them, new things come to the play!</p>
         <ul>
-            <li>Email Notification</li>
-            <li>Web Socket (open connection)</li>
+            <li>Are all the services working right now?</li>
+            <li>Which service does what?</li>
+            <li>I did a change. Is  that service working yet?</li>
+            <li>and many more</li>
         </ul>
+        <p>With these questions, you can feel about <strong>concern</strong> or <strong>worrisome</strong> we have here. And it is not a good feeling, is it?</p>
+        <img width="100%" src="/build/img/02-14-developers-services-feedback-loop.png" alt="02-14-developers-services-feedback-loop.png" />
 
-        <h3 class="sub-title">Email Notification</h3>
-        <p>A screenshot we saw on <a href="../handle-failed-action">handle-failed-action</a>, actually I tried to create a loop between my machine and the server using email.</p>
+        <p>Thus we need a mechanism, way, thing to be aware of our services.</p>
+        <p>Yes we always can <strong>SSH</strong> to the server and <strong>cat</strong> logs. But does everybody on the team or organization can?</p>
+        <p>A thing that comes to mind is some kind of <strong>notification</strong>. So we can notify ourselves by sending emails after each push to our shared repository or any activities on our server.</p>
+        <p>I did this. It works. And here is a screenshot of my email INBOX when I  pushed this page on the shared repository; and from there to the  server.</p>
+        <img width="100%" src="/build/img/02-14-github-email-notification.png" alt="02-14-github-email-notification.png">
+        <p>One of the emails say: <strong>msfun.ir update succeeded</strong>. I get this email when the  node microserice (managing this blog) is restarted successfully. Then for seeing the last lines of log, I have to open the attached file to the email.</p>
+        <p>It is a simple feedback loop and lets me be confident about the service I have. But</p>
+        <ul>
+            <li>I have to check my email regularly!</li>
+            <li>Maybe opening the attached file to see the log!</li>
+            <li>Not everyone on a team (if I had a team) is able to see my email.</li>
+        </ul>
+        <p>Did you think that we can email to more just one person? Oh! So do you think if we have 10 developers, all of them should get an email? All of them check their email? All of the see the log?</p>
+        <p>No no no. It is not a good and to me an efficient idea.</p>
+    
+
+        <h3 class="sub-title">Email Notification as Feedback Loop</h3>
+        <p>A screenshot we saw on <a href="../handle-failed-action">handle-failed-action</a>, actually I tried to create a loop between my machine and the server by sending emails.</p>
         <img width="100%" src="/build/img/02-13-alerting-remote-to-local-communicatin-via-emailing.png" alt="02-13-alerting-remote-to-local-communicatin-via-emailing.png" />
-        <p>On the right side I a have bash script that in a loop - every 1 second - checks the email I have gotten, to see if there is knew one. If yes it tries to read the subject using <strong>curl</strong> command.</p>
-        <p>it is the fasted way of checking emails in this way but requires to check it in a loop every 1 second.</p>
-        <p>ON the left side I send email to myself and you can see the bash script on the right side detect the new email and prints a subjects.</p>
+        <p>On the right side I have a bash script that in a loop - every 1 second - checks the email I have gotten, to see if there is new one. If yes it tries to read the subject using <strong>curl</strong> command.</p>
+        <p>it is the fasted way of checking emails, but requires to check it in a loop every 1 second.</p>
+        <p>On the left side I am sending emails to myself and you can see the bash script on the right side detects the new email and prints the subjects.</p>
         <p>At this point based on subjects of emails we get, whether it is:</p>
         <ul>
             <li>failed</li>
             <li>succeeded</li>
             <li>etc</li>
         </ul>
-        <p>we (= our script) can decide to do another action.</p>
-        <p>It works. I tired it, but it is not:</p>
+        <p>we (= or our script) can decide to do another action, if we had it to do.</p>
+        <p>It works. I tired it, but it is:</p>
         <ul>
-            <li>inefficient</li>
-            <li>unreliable</li>
+            <li>inefficient: reading emails, deleting them over and over again</li>
+            <li>unreliable: sometimes is read fast and sometimes not</li>
         </ul>
 
-        <h3 class="sub-title">Web Socket</h3>
-        <p>Using web socket we can have an opened connection between us and the remote machine that has a web socket server.</p>
-        <p>I tired it, but not completely done. And still I am working on it.</p>
+        <h3 class="sub-title">Real-time Service Monitoring</h3>
+        <p>Using web socket we can have an opened connection between us and the remote machine that has a web socket server running.</p>
+        <p>In this way we can monitor our [server | service | microserice] in real-time. We can see logging of our services, actions that are done, etc.</p>
+        <p>I tired it. It is amazing; but not completely I am done. And still I am working on it.</p>
         <p>The result will be shared here.</p>
         
         <h3 class="sub-title">Conclusion</h3>
