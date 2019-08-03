@@ -15,6 +15,15 @@
             "ci server": "",
             "handle failed action": "",
             "developers services feedback loop": ""
+        },
+        "modern team guideline": {
+            "incidental coupled team": "",
+            "reverse conway maneuver": "",
+            "prefer collaboration over categorization": "",
+            "choose technology stacks appropriate to problem scales": "",
+            "prefer guidance over governance": "",
+            "prefer automation to ad-hoc verification": ""
         }
+
     }
 }
