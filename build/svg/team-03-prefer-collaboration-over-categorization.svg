@@ -14,8 +14,8 @@
     
   </g>
   <g transform="translate(0,280)">
-    <text x="250" y="30" font-size="30" fill="#fff" text-anchor="middle" font-weight="bold">Prefer <tspan fill="#0ff">collaboration</tspan>   </text>
-    <text x="250" y="80" font-size="30" fill="#fff" text-anchor="middle" font-weight="bold">over <tspan fill="#0ff">categorization</tspan></text>
+    <text x="250" y="30" font-size="30" fill="#fff" text-anchor="middle" font-weight="bold">Prefer <tspan fill="#fff">collaboration</tspan>   </text>
+    <text x="250" y="80" font-size="30" fill="#fff" text-anchor="middle" font-weight="bold">over <tspan fill="#fff">categorization</tspan></text>
   </g>
   <g transform="translate(20,480)">
     <path d="M200,0 v-40 h40 v40" fill="#fff" stroke-width="3" stroke="#fff"></path>

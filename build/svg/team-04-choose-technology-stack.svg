@@ -7,8 +7,8 @@
   </g>
 
   <g transform="translate(0,120)">
-    <text x="250" y="30" font-size="30" fill="#0ff" text-anchor="middle" font-weight="bold">choose technology stacks</text>
-    <text x="250" y="80" font-size="30" fill="#0ff" text-anchor="middle" font-weight="bold">appropriate to problem scale</text>
+    <text x="250" y="30" font-size="30" fill="#fff" text-anchor="middle" font-weight="bold">Choose technology stacks</text>
+    <text x="250" y="80" font-size="30" fill="#fff" text-anchor="middle" font-weight="bold">appropriate to problem scale</text>
   </g>
   <g transform="translate(50,280)">
     <rect x="0" y="0" width="150" height="100" fill="#fff"></rect>
