@@ -41,6 +41,18 @@ a {
   padding: 10px;
   margin: 50px 0 50px 0; }
 
+.posts {
+  display: flex;
+  flex-flow: row wrap; }
+
+.post {
+  flex: 1 1 46%;
+  padding: 10px;
+  margin: 10px auto;
+  box-shadow: 0 0 10px #ccc; }
+  .post > img {
+    width: 100%; }
+
 main {
   margin: 100px 0 100px 0; }
 
