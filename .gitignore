@@ -16,4 +16,9 @@ clean.sh
 react-js/build/
 !react-js/*.js
 
+<<<<<<< HEAD
 package-lock.json
+=======
+build/css
+build/react
+>>>>>>> bdd0d1e1ec07fff105c8703e306dc6a033d90781
