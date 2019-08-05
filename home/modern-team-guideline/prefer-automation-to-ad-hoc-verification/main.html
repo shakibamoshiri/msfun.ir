@@ -1,7 +1,52 @@
 <main>
 	<div class="content-r">
 		<h1>prefer-automation-to-ad-hoc-verification</h1>
+        <hr>
+        <p>One of the  most interesting part of microservices architecture is to have a <strong>pipeline</strong>.</p>
+        <p>Because we have many operations to do, it does not make sense to do all operations manually.
+        And we do not have a pipeline unless we have <strong>automation</strong>.
+        </p>
+        <p>For example</p>
+        <ul>
+            <li>tests automation</li>
+            <li>deployments automation</li>
+            <li>builds automation</li>
+            <li>automation in monitoring. e.g reporting failure in a service</li>
+        </ul>
+
+        <h3 class="sub-title">why automation</h3>
+        <img width="100%" src="/build/svg/team-05-prefer-automation-to-adhoc-verafication.svg" alt="team-05-prefer-automation-to-adhoc-verafication.svg">
+        <p>The key thing about automation is not just that we do not have to do things manually, but mostly it is that we no longer have to worry about that part in our pipeline, our system, etc.</p>
+        <p>In fact we can forget about it and just focus on more important things.</p>
+
+
+        <h3 class="sub-title">example</h3>
+        <p>For example for writing this blog I have set up a simple automated pipeline;</p>
+        <ul>
+            <li>editing a file and commit the change on my local machine</li>
+            <li>git push to Github</li>
+            <li>GitHub will receive changes and notify the Node.js server which takes care of this blog</li>
+            <li>Then it checks if notification is from GitHub, if yes, it does <strong>git pull</strong> and then merge the changes to existing files.</li>
+            <li>if required the Node.js server will be restarted</li>
+            <li>If something goes wring I will get emails, text messaging, etc</li>
+        </ul>
+        <p>These are happen automatically. I just write and push. And no longer think about the rest. So my focus is on writing and not:</p>
+        <ul>
+            <li>uploading files</li>
+            <li>create files on the server</li>
+            <li>get new files from GitHub</li>
+            <li>merge files</li>
+            <li>ssh to server and check for failures</li>
+            <li>etc</li>
+        </ul>
+        <p>So avoid checking your services using <strong>ssh</strong>.</p>
+        <p>For example for monitoring we can have a Flat TV in our IT room and in real-time watch the state of our services.</p>
+        <p>Not only we save time, but also are confident about status of our services.</p>
         
+        <h3 class="sub-title">add more stage</h3>
+        <p>One other good thing about having a pipeline and automation system is that if right now we do not have a stage for <strong>testing</strong> in our pipeline, we can add one more easily comparing to do it manually with our existing stages.</p>
+
+        <i>please update or clarify this post if you see any mistakes.</i>
 		DD_MM_YYYY
         <div class="edit-on-github">
             <a target="_blank" href="https://github.com/k-five/msfun.ir/blob/master/home/modern-team-guideline/prefer-automation-to-ad-hoc-verification/main.html">Edit on Github</a>
